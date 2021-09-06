@@ -61,7 +61,6 @@ clean:
 				@rm -rf $(OBJDIR)
 				@make clean -C $(PRINTF_PATH)
 				@$(RM) $(OBJS) $(BONUS_OBJS)
-				@echo ".O DELETED"
 
 fclean:		clean
 				@$(RM) $(NAME)

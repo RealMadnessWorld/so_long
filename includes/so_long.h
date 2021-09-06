@@ -95,6 +95,10 @@ void	map_parser(char *map, t_vars *d);
 void	map_checker(t_vars *d);
 void	map_limits(t_vars *d);
 void	map_body(char *map_line, t_vars *d);
+void	put_static_image(char symb, t_vars *d);
+void	put_moving_image(char symb, t_vars *d);
+void	image_put(char symb, t_vars *d, int y, int x);
+void	map_building(t_vars *d);
 
 /****************************\
 *	Key handling functions	 *

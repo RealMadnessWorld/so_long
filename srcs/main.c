@@ -39,7 +39,6 @@ int	main(int argc, char **argv)
 	map_size(argv[1], &d);
 	map_parser(argv[1], &d);
 	map_checker(&d);
-	printf("hi\n");
 	so_long(&d);
 	return (0);
 }
