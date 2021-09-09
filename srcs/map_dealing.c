@@ -8,7 +8,7 @@ void	map_size(char *map, t_vars *d)
 
 	fd = open(map, O_RDONLY);
 	if (fd < 0)
-		ft_error("Map directory is wrong dumbass...\n");
+		ft_error(CLR_RED "Map directory is wrong dumbass...\n");
 	gnl = 1;
 	while (gnl == 1)
 	{
@@ -31,7 +31,7 @@ void	map_parser(char *map, t_vars *d)
 	i = 0;
 	fd = open((map), O_RDONLY);
 	if (fd < 0)
-		ft_error("Map directory is wrong dumbass...\n");
+		ft_error(CLR_RED "Map directory is wrong dumbass...\n");
 	d->map.map = ft_calloc(d->map.map_wid + 1, sizeof(char *));
 	gnl = 1;
 	while (gnl == 1)
@@ -59,9 +59,9 @@ void	map_checker(t_vars *d)
 		i++;
 	}
 	if (d->exit == 0 || d->collect == 0 || d->pos != 1)
-		ft_error("Missinng elements... Do you need a drawing");
+		ft_error(CLR_RED "Missinng elements... Do you need a drawing");
 	if (d->map.map_wid > 17 || d->map.map_len > 39)
-		ft_error("The map is too big");
+		ft_error(CLR_RED "The map is too big");
 }
 
 void	map_limits(t_vars *d)
@@ -71,18 +71,18 @@ void	map_limits(t_vars *d)
 
 	i = 0;
 	if (l != d->map.map_len)
-		ft_error("The map is open idiot...\n");
+		ft_error(CLR_RED "The map is open idiot...\n");
 	while (d->map.map[0][i])
 	{
 		if (d->map.map[0][i] != '1')
-			ft_error("The top map is wrong... ugh... Whyyyyyyy???\n");
+			ft_error(CLR_RED "The top map is wrong... ugh... Whyyyyyyy???\n");
 		i++;
 	}
 	i = 0;
 	while (d->map.map[d->map.map_wid - 1][i])
 	{
 		if (d->map.map[d->map.map_wid - 1][i] != '1')
-			ft_error("The bot map is wrong... ugh... Whyyyyyyy???\n");
+			ft_error(CLR_RED "The bot map is wrong... ugh... Whyyyyyyy???\n");
 		i++;
 	}
 }
@@ -93,9 +93,9 @@ void	map_body(char *map_line, t_vars *d)
 
 	i = 0;
 	if ((int)ft_strlen(map_line) != d->map.map_len)
-		ft_error("Map has the wrong shape idiot...");
+		ft_error(CLR_RED "Map has the wrong shape idiot...");
 	if (map_line[0] != '1' || map_line[ft_strlen(map_line) - 1] != '1')
-		ft_error("The map is open on the sides...");
+		ft_error(CLR_RED "The map is open on the sides...");
 	while (map_line[i])
 	{
 		if (map_line[i] == 'E')
@@ -105,10 +105,10 @@ void	map_body(char *map_line, t_vars *d)
 		else if (map_line[i] == 'P')
 			d->pos += 1;
 		else if (map_line[i] == '1' || map_line[i] == '0' ||
-				map_line[i] == 'D')
+				map_line[i] == 'X')
 			;
 		else
-			ft_error("Wrong symbols in the map...");
+			ft_error(CLR_RED "Wrong symbols in the map...");
 		i++;
 	}
 }

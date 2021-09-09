@@ -30,8 +30,14 @@ void	put_static_image(char symb, t_vars *d)
 		d->img = mlx_xpm_file_to_image(d->mlx, d->imag.img_ground, \
 									&d->imag.img_hei, &d->imag.img_wid);
 	if (symb == 'E')
-		d->img = mlx_xpm_file_to_image(d->mlx, d->imag.img_exit, \
+	{
+		if (d->collect == 0)
+			d->img = mlx_xpm_file_to_image(d->mlx, d->imag.img_exit_o, \
+										&d->imag.img_hei, &d->imag.img_wid);
+		else
+			d->img = mlx_xpm_file_to_image(d->mlx, d->imag.img_exit_c, \
 									&d->imag.img_hei, &d->imag.img_wid);
+	}
 	if (symb == 'C')
 		d->img = mlx_xpm_file_to_image(d->mlx, d->imag.img_money, \
 									&d->imag.img_hei, &d->imag.img_wid);
@@ -54,10 +60,9 @@ int	random_num(void)
 	int num;
 
 	lower = 1;
-	upper = 4;
+	upper = 100;
 
 	srand(time(0));
 	num = (rand() % (upper - lower + 1)) + lower;
 	return (num);
 }
-

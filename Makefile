@@ -11,7 +11,7 @@ OBJDIR	= ./objs/
 INCDIR	= ./includes/
 
 # files
-SRCS	= main.c so_long.c key_handler.c image_put.c map_dealing.c
+SRCS	= main.c so_long.c key_handler.c image_put.c map_dealing.c enemy_move.c
 HEADER	= so_long.h
 OBJ		= $((addprefix $(OBJDIR)/,SRCS:.c=.o))
 

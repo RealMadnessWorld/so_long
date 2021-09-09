@@ -17,7 +17,8 @@ void	init_vars(t_vars *d)
 	d->imag.img_ground = chk_img_path("./images/ground.xpm");
 	d->imag.img_cop = chk_img_path("./images/enemy.xpm");
 	d->imag.img_money = chk_img_path("./images/collectible.xpm");
-	d->imag.img_exit = chk_img_path("./images/exit.xpm");
+	d->imag.img_exit_c = chk_img_path("./images/exit_closed.xpm");
+	d->imag.img_exit_o = chk_img_path("./images/exit_open.xpm");
 }
 
 void	checker(int argc, char **argv)

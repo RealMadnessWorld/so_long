@@ -6,6 +6,7 @@
 #include "keycode_mac.h"
 #include "../libft/includes/libft.h"
 #include "limits.h"
+#include "time.h"
 #include <stdio.h>
 
 /****************************\
@@ -51,7 +52,8 @@ typedef struct	s_img
 	void	*img_border;
 	void	*img_money;
 	void	*img_cop;
-	void	*img_exit;
+	void	*img_exit_c;
+	void	*img_exit_o;
 	int		bpp;
 	int		ll;
 	int		endn;
@@ -78,6 +80,7 @@ typedef struct	s_variables
 	int		pos_y;
 	int		e_pos_x;
 	int		e_pos_y;
+	char 	*count;
 }				t_vars;
 
 /****************************\
@@ -101,19 +104,27 @@ void	put_static_image(char symb, t_vars *d);
 void	put_moving_image(char symb, t_vars *d);
 void	image_put(char symb, t_vars *d, int y, int x);
 void	map_building(t_vars *d);
+void	open_exit(t_vars *d);
 
 /****************************\
-*	Key handling functions	 *
+*		 Move functions		 *
 \****************************/
 
 int		key_handler(int keycode, t_vars *d);
+void	check_move(t_vars *d, int x, int y);
+void	move(t_vars *d, int x, int y);
+int		enemy_move(t_vars *d);
+int		e_move_handler(int num, t_vars *d);
+void	e_check_move(t_vars *d, int x, int y);
+void	e_move(t_vars *d, int x, int y);
 
 /****************************\
 *			Utils			 *
 \****************************/
 
-int	close_x_button(t_vars *d);
-int	close_win(t_vars *d, char code);
-
+int		close_x_button(t_vars *d);
+int		close_win(t_vars *d, char code);
+int		random_num(void);
+void	step_counter(t_vars *d);
 
 #endif
