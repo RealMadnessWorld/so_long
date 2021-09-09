@@ -76,6 +76,8 @@ typedef struct	s_variables
 	int		time;
 	int		pos_x;
 	int		pos_y;
+	int		e_pos_x;
+	int		e_pos_y;
 }				t_vars;
 
 /****************************\
@@ -104,7 +106,14 @@ void	map_building(t_vars *d);
 *	Key handling functions	 *
 \****************************/
 
-int		key_handler(int keycode/*, t_param *param*/);
+int		key_handler(int keycode, t_vars *d);
+
+/****************************\
+*			Utils			 *
+\****************************/
+
+int	close_x_button(t_vars *d);
+int	close_win(t_vars *d, char code);
 
 
 #endif
