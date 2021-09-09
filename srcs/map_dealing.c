@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   map_dealing.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jarsenio <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/09/09 18:57:27 by jarsenio          #+#    #+#             */
+/*   Updated: 2021/09/09 18:57:29 by jarsenio         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
 void	map_size(char *map, t_vars *d)
@@ -41,7 +53,7 @@ void	map_parser(char *map, t_vars *d)
 		free(line);
 		i++;
 	}
-	if(gnl == -1)
+	if (gnl == -1)
 		ft_error(CLR_RED "Gnl error... A mess as always\n");
 	close(fd);
 }
@@ -67,9 +79,10 @@ void	map_checker(t_vars *d)
 void	map_limits(t_vars *d)
 {
 	int	i;
-	int l = (int)ft_strlen(d->map.map[d->map.map_wid - 1]);
+	int	l;
 
 	i = 0;
+	l = (int)ft_strlen(d->map.map[d->map.map_wid - 1]);
 	if (l != d->map.map_len)
 		ft_error(CLR_RED "The map is open idiot...\n");
 	while (d->map.map[0][i])
@@ -104,7 +117,7 @@ void	map_body(char *map_line, t_vars *d)
 			d->collect += 1;
 		else if (map_line[i] == 'P')
 			d->pos += 1;
-		else if (map_line[i] == '1' || map_line[i] == '0' ||
+		else if (map_line[i] == '1' || map_line[i] == '0' || \
 				map_line[i] == 'X')
 			;
 		else

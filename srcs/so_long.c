@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   so_long.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jarsenio <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/09/09 18:57:42 by jarsenio          #+#    #+#             */
+/*   Updated: 2021/09/09 18:57:44 by jarsenio         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
 void	so_long(t_vars *d)
 {
 	d->mlx = mlx_init();
-	d->win = mlx_new_window(d->mlx, d->map.map_len * 64,
+	d->win = mlx_new_window(d->mlx, d->map.map_len * 64, \
 							d->map.map_wid * 64, TITLE);
 	map_building(d);
 	mlx_hook(d->win, KEYPRESS, 0, &key_handler, d);
@@ -54,7 +66,7 @@ int	close_x_button(t_vars *d)
 
 void	step_counter(t_vars *d)
 {
-	char *count;
+	char	*count;
 
 	count = ft_itoa(d->steps);
 	image_put('1', d, 0, 1);

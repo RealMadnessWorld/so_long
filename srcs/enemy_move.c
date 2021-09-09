@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   enemy_move.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jarsenio <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/09/09 18:56:44 by jarsenio          #+#    #+#             */
+/*   Updated: 2021/09/09 18:56:46 by jarsenio         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
 int	e_move_handler(int num, t_vars *d)
@@ -19,7 +31,7 @@ void	e_check_move(t_vars *d, int x, int y)
 		close_win(d, 'L');
 	if (d->map.map[d->e_pos_y + y][d->e_pos_x + x] != '1' && \
 		d->map.map[d->e_pos_y + y][d->e_pos_x + x] != 'C')
-			e_move(d, x, y);
+		e_move(d, x, y);
 }
 
 void	e_move(t_vars *d, int x, int y)

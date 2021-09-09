@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   image_put.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jarsenio <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/09/09 18:56:54 by jarsenio          #+#    #+#             */
+/*   Updated: 2021/09/09 18:56:56 by jarsenio         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
 void	image_put(char symb, t_vars *d, int y, int x)
 {
 	if (symb == '1' || symb == '0' || symb == 'C' || symb == 'E')
 		put_static_image(symb, d);
-	if(symb == 'P' || symb == 'X')
+	if (symb == 'P' || symb == 'X')
 	{
 		if (symb == 'P')
 		{
@@ -18,7 +30,8 @@ void	image_put(char symb, t_vars *d, int y, int x)
 		}
 		put_moving_image(symb, d);
 	}
-	mlx_put_image_to_window(d->mlx, d->win, d->img, x * d->imag.img_hei, y * d->imag.img_wid);
+	mlx_put_image_to_window(d->mlx, d->win, d->img, x * d->imag.img_hei, \
+							y * d->imag.img_wid);
 }
 
 void	put_static_image(char symb, t_vars *d)
@@ -55,13 +68,12 @@ void	put_moving_image(char symb, t_vars *d)
 
 int	random_num(void)
 {
-	int lower; 
-	int upper;
-	int num;
+	int	lower;
+	int	upper;
+	int	num;
 
 	lower = 1;
 	upper = 100;
-
 	srand(time(0));
 	num = (rand() % (upper - lower + 1)) + lower;
 	return (num);

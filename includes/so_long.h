@@ -1,13 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   so_long.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jarsenio <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/09/09 19:07:04 by jarsenio          #+#    #+#             */
+/*   Updated: 2021/09/09 19:07:06 by jarsenio         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-#include "mlx.h"
-#include "colors.h"
-#include "keycode_mac.h"
-#include "../libft/includes/libft.h"
-#include "limits.h"
-#include "time.h"
-#include <stdio.h>
+# include "mlx.h"
+# include "colors.h"
+# include "keycode_mac.h"
+# include "../libft/includes/libft.h"
+# include "limits.h"
+# include "time.h"
+# include <stdio.h>
 
 /****************************\
 *		  Defenitions		 *
@@ -16,10 +28,9 @@
 # define TITLE "principle vagina"
 # define WIN_H 800
 # define WIN_W 1200
-
-#define KEYPRESS 2
-#define KEYRELEASE 3
-#define X_EVENT_KEY_EXIT 17 //exit key code
+# define KEYPRESS 2
+# define KEYRELEASE 3
+# define X_EVENT_KEY_EXIT 17
 
 # define KEY_ESCAPE 53
 
@@ -27,9 +38,8 @@
 *		  Structures		 *
 \****************************/
 
-
 /*
-**	structure for the map variables
+** structure for the map variables
 */
 
 typedef struct	s_map
@@ -40,7 +50,7 @@ typedef struct	s_map
 }				t_map;
 
 /*
-**	variables for the image
+** variables for the image
 */
 
 typedef struct	s_img
@@ -60,7 +70,7 @@ typedef struct	s_img
 }				t_img;
 
 /*
-**	general variables
+** general variables
 */
 
 typedef struct	s_variables

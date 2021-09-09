@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   key_handler.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jarsenio <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/09/09 18:57:07 by jarsenio          #+#    #+#             */
+/*   Updated: 2021/09/09 18:57:10 by jarsenio         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
@@ -20,7 +31,6 @@ void	check_move(t_vars *d, int x, int y)
 {
 	if (d->map.map[d->pos_y + y][d->pos_x + x] != '1')
 	{
-
 		if (d->map.map[d->pos_y + y][d->pos_x + x] == 'X')
 			close_win(d, 'L');
 		else if (d->map.map[d->pos_y + y][d->pos_x + x] == 'E'
@@ -30,7 +40,7 @@ void	check_move(t_vars *d, int x, int y)
 		{
 			move(d, x, y);
 			d->collect -= 1;
-			if(d->collect == 0)
+			if (d->collect == 0)
 				open_exit(d);
 		}
 		else if (d->map.map[d->pos_y + y][d->pos_x + x] == '0')
@@ -50,8 +60,8 @@ void	move(t_vars *d, int x, int y)
 
 void	open_exit(t_vars *d)
 {
-	int w;
-	int l;
+	int	w;
+	int	l;
 
 	w = 0;
 	while (d->map.map[w])
