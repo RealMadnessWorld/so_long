@@ -12,7 +12,7 @@
 
 #include "../includes/libft.h"
 
-static char		*ft_swap(char *s)
+static char	*ft_swap(char *s)
 {
 	int		i;
 	int		leng;
@@ -30,7 +30,7 @@ static char		*ft_swap(char *s)
 	return (s);
 }
 
-char			*ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	int		sign;
 	int		i;

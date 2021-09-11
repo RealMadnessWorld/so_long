@@ -12,103 +12,7 @@
 
 #include "../includes/get_next_line.h"
 
-char	*ft_strjoingnl(char const *s1, char const *s2)
-{
-	int		i;
-	int		j;
-	char	*str;
-
-	i = 0;
-	j = 0;
-	if (!s1 || !s2)
-		return (NULL);
-	str = malloc(sizeof(char) * (ft_strlengnl(s1) + ft_strlengnl(s2) + 1));
-	if (!str)
-		return (NULL);
-	while (s1[i] != '\0')
-	{
-		str[i] = s1[i];
-		i++;
-	}
-	while (s2[j] != '\0')
-	{
-		str[i] = s2[j];
-		i++;
-		j++;
-	}
-	str[i] = '\0';
-	return (str);
-}
-
-size_t	ft_strlengnl(const char *str)
-{
-	size_t	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
-char	*ft_strdupgnl(const char *str)
-{
-	char	*ptr;
-	int		i;
-
-	i = 0;
-	ptr = (char *)malloc(sizeof(*str) * (ft_strlengnl(str) + 1));
-	if (!ptr)
-		return (NULL);
-	while (str[i] != '\0')
-	{
-		ptr[i] = str[i];
-		i++;
-	}
-	ptr[i] = '\0';
-	return (ptr);
-}
-
-char	*ft_strchrgnl(const char *s, int c)
-{
-	while (*s != (char)c)
-	{
-		if (*s == 0)
-			return (0);
-		s++;
-	}
-	return ((char *)s);
-}
-
-char	*ft_substrgnl(char const *s, unsigned int start, size_t len)
-{
-	char	*p;
-	size_t	i;
-	size_t	s_len;
-
-	if (!s)
-		return (NULL);
-	s_len = ft_strlengnl(s);
-	if (start >= s_len)
-	{
-		p = malloc(sizeof(char));
-		if (!p)
-			return (0);
-		*p = '\0';
-		return (p);
-	}
-	if (s_len < len)
-		return (ft_strdupgnl(s + start));
-	p = malloc(len + 1);
-	if (!p)
-		return (NULL);
-	i = 0;
-	while (start < s_len && i < len)
-		p[i++] = s[start++];
-	p[i] = '\0';
-	return (p);
-}
-
-int		gnl_lines(int fd, char **line, char **hotline)
+int	gnl_lines(int fd, char **line, char **hotline)
 {
 	int		i;
 	char	*temp;
@@ -133,7 +37,7 @@ int		gnl_lines(int fd, char **line, char **hotline)
 	}
 }
 
-int		gnl_returns(int fd, char **line, char **hotline, int i)
+int	gnl_returns(int fd, char **line, char **hotline, int i)
 {
 	if (i == -1)
 		return (-1);
@@ -146,7 +50,7 @@ int		gnl_returns(int fd, char **line, char **hotline, int i)
 		return (gnl_lines(fd, line, hotline));
 }
 
-int		get_next_line(int fd, char **line)
+int	get_next_line(int fd, char **line)
 {
 	static char		*hotline[10000];
 	char			buf[BUFFER_SIZE + 1];
@@ -155,7 +59,8 @@ int		get_next_line(int fd, char **line)
 
 	if (fd < 0 || !line || BUFFER_SIZE <= 0)
 		return (-1);
-	while ((i = read(fd, buf, BUFFER_SIZE)) > 0)
+	i = read(fd, buf, BUFFER_SIZE);
+	while (i > 0)
 	{
 		buf[i] = '\0';
 		if (!hotline[fd])

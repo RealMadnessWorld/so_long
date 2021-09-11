@@ -21,6 +21,8 @@ void	so_long(t_vars *d)
 	mlx_hook(d->win, KEYPRESS, 0, &key_handler, d);
 	mlx_hook(d->win, X_EVENT_KEY_EXIT, 1L << 2, &close_x_button, d);
 	mlx_loop_hook(d->mlx, enemy_move, d);
+	if (d->map.map[d->pos_y][d->pos_x] == 'X')
+		close_win(d, 'L');
 	mlx_loop(d->mlx);
 }
 

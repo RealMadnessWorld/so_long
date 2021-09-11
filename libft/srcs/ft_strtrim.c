@@ -12,7 +12,7 @@
 
 #include "../includes/libft.h"
 
-static int		check(char const c, char const *set)
+static int	check(char const c, char const *set)
 {
 	int		i;
 
@@ -26,7 +26,7 @@ static int		check(char const c, char const *set)
 	return (0);
 }
 
-char			*ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
 	int		start;
 	int		i;

@@ -66,15 +66,3 @@ void	put_moving_image(char symb, t_vars *d)
 									&d->imag.img_hei, &d->imag.img_wid);
 }
 
-int	random_num(void)
-{
-	int	lower;
-	int	upper;
-	int	num;
-
-	lower = 1;
-	upper = 100;
-	srand(time(0));
-	num = (rand() % (upper - lower + 1)) + lower;
-	return (num);
-}

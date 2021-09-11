@@ -12,7 +12,7 @@
 
 #include "../includes/libft.h"
 
-static int		counter(char const *s, char c)
+static int	counter(char const *s, char c)
 {
 	int		i;
 	int		word;
@@ -38,16 +38,33 @@ static int		counter(char const *s, char c)
 	return (word);
 }
 
-char			**ft_split(char const *s, char c)
+static int	allocate_dst(char **dst, char const *s, char c)
+{
+	dst = (char **)malloc(sizeof(char *) * counter(s, c) + 1);
+	if (!dst)
+		return (0);
+	return (1);
+}
+
+static int	allocate_dst_small(char **dst, int i, char *str, const char *s)
+{
+	dst[i] = (char *)malloc(s - str + 1);
+	if (!dst[i])
+		return (0);
+	return (1);
+}
+
+char	**ft_split(char const *s, char c)
 {
 	char	**dst;
 	char	*str;
 	int		i;
 
 	i = 0;
+	dst = NULL;
 	if (!s)
 		return (0);
-	if (!(dst = (char **)malloc(sizeof(char *) * counter(s, c) + 1)))
+	if (allocate_dst(dst, s, c) == 0)
 		return (0);
 	while (*s)
 	{
@@ -56,12 +73,11 @@ char			**ft_split(char const *s, char c)
 			str = (char *)s;
 			while (*s && *s != c)
 				s++;
-			if (!(dst[i] = (char *)malloc(s - str + 1)))
+			if (allocate_dst_small(dst, i, str, s) == 0)
 				return (0);
 			ft_strlcpy(dst[i++], str, s - str + 1);
 		}
-		else
-			s++;
+		s++;
 	}
 	dst[i] = 0;
 	return (dst);

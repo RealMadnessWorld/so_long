@@ -52,6 +52,6 @@ int	enemy_move(t_vars *d)
 	if (d->frame >= 2000)
 		d->frame = 0;
 	if (d->frame == 1999)
-		e_move_handler(random_num(), d);
+		e_move_handler(random_num(1, 100), d);
 	return (0);
 }

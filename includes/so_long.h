@@ -39,10 +39,10 @@
 \****************************/
 
 /*
-** structure for the map variables
+**	structure for the map variables
 */
 
-typedef struct	s_map
+typedef struct s_map
 {
 	char	**map;
 	int		map_len;
@@ -50,10 +50,10 @@ typedef struct	s_map
 }				t_map;
 
 /*
-** variables for the image
+**	variables for the image
 */
 
-typedef struct	s_img
+typedef struct s_img
 {
 	int		img_hei;
 	int		img_wid;
@@ -73,7 +73,7 @@ typedef struct	s_img
 ** general variables
 */
 
-typedef struct	s_variables
+typedef struct s_variables
 {
 	void	*mlx;
 	void	*win;
@@ -90,7 +90,7 @@ typedef struct	s_variables
 	int		pos_y;
 	int		e_pos_x;
 	int		e_pos_y;
-	char 	*count;
+	char	*count;
 }				t_vars;
 
 /****************************\
@@ -134,7 +134,6 @@ void	e_move(t_vars *d, int x, int y);
 
 int		close_x_button(t_vars *d);
 int		close_win(t_vars *d, char code);
-int		random_num(void);
 void	step_counter(t_vars *d);
 
 #endif

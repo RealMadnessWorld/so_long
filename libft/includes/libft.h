@@ -20,6 +20,7 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <stdlib.h>
+# include <time.h>
 //# include <stddef.h>
 # include <fcntl.h>
 # include <stdlib.h>
@@ -109,5 +110,6 @@ t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
 void			ft_error(char *error);
 int				find_extention(char *str, char *ext);
 char			*chk_img_path(char *path);
+int				random_num(int lower, int upper);
 
 #endif
