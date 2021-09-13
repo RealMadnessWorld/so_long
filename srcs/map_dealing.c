@@ -72,8 +72,6 @@ void	map_checker(t_vars *d)
 	}
 	if (d->exit == 0 || d->collect == 0 || d->pos != 1)
 		ft_error(CLR_RED "Missinng elements... Do you need a drawing");
-	// if (d->map.map_wid > 17 || d->map.map_len > 39)
-	// 	ft_error(CLR_RED "The map is too big");
 }
 
 void	map_limits(t_vars *d)

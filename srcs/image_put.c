@@ -65,4 +65,3 @@ void	put_moving_image(char symb, t_vars *d)
 		d->img = mlx_xpm_file_to_image(d->mlx, d->imag.img_cop, \
 									&d->imag.img_hei, &d->imag.img_wid);
 }
-

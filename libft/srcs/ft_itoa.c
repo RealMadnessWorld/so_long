@@ -12,6 +12,16 @@
 
 #include "../includes/libft.h"
 
+static int	is_neg(int i)
+{
+	int	n;
+
+	if (i < 0)
+		n = -i;
+	else
+		n = i;
+}
+
 static char	*ft_swap(char *s)
 {
 	int		i;
@@ -42,8 +52,8 @@ char	*ft_itoa(int n)
 		return (ft_strdup("-2147483648"));
 	else if (n == 0)
 		return (ft_strdup("0"));
-	sign = (n < 0) ? -1 : 1;
-	n = (n < 0) ? -n : n;
+	sign = is_neg(sign);
+	n = is_neg(n);
 	while (n > 0)
 	{
 		str[i++] = (n % 10) + '0';
