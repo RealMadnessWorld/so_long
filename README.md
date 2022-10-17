@@ -18,11 +18,43 @@ The objective of this project is to build a 2D game using the school graphical l
 
 The bonus part you also have to add an enemy, a sprite animation and a movement count displayed directly on the screen.
 
+![image](https://user-images.githubusercontent.com/76601093/196158201-1ff31fe0-3a19-4c8a-8101-67d83a5dbb73.png)
+
 ---
 
 <h2 align="center">
-  README unfinished. Game was made for mac, doesn't work on linux or windows.
+	How to install minilbx
 </h2>
+
+    git clone https://github.com/42Paris/minilibx-linux.git
+    cd minilibx-linux
+
+    sudo apt install libxext-dev libxrandr-dev libx11-dev libbsd-dev libssl-dev
+
+    make
+    
+	cd /usr/local/man/
+	sudo mkdir man1
+
+    (Return to the minilibx-linux directory)
+
+    sudo cp man/man1/* /usr/local/man/man1/
+    sudo cp libmlx.a /usr/local/lib/
+    sudo cp mlx.h /usr/local/include/
+    
+    man mlx
+    (Must show the minilibx manual)
+
+---
+
+<h2 align="center">
+  How to run:
+</h2>
+
+- ```make```
+- ```./so_long maps/map.ber``` (you can change the map or make a new one)
+
+IMPORTANT: This game was made for Mac, you can open the game but may not be able to move on linux because of the key bindings.
 
 ---
 
