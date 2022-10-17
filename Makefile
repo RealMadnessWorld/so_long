@@ -1,9 +1,11 @@
 NAME	= so_long
 OS		= $(shell uname)
 
+MAKEFLAGS += -s
+
 CC		= gcc
-RM		= rm -f
 CFLAGS	= -Wall -Wextra -Werror -g
+RM		= rm -f
 
 # directories
 SRCDIR	= ./srcs/
@@ -21,45 +23,44 @@ LIB_INC	= -I ./includes/libft
 
 # mlx library
 ifeq ($(OS), Linux)
-	MLX		= ./miniLibX_X11/
-	MLX_LNK	= -L $(MLX) -l mlx -lXext -lX11 -lm -lz
+	LIBS	= -lm -L./libft -lft -lmlx -lX11 -lbsd -lXext
+	_RED	= \e[31;5;184m
+	_GREEN	= \e[38;5;46m
+	_YELLOW	= \e[38;5;184m
+	_RESET	= \e[0m
 else
-	MLX		= ./miniLibX/
-	MLX_LNK	= -L $(MLX) -l mlx -framework OpenGL -framework AppKit
+	LIBS	= -lm -L./libft -lft -lmlx -framework OpenGL -framework AppKit
+	_RED	= \x1b[31m
+	_GREEN	= \x1b[32m
+	_YELLOW	= \x1b[33m
+	_RESET	= \x1b[0m
 endif
 
-MLX_INC	= -I $(MLX)
-MLX_LIB	= $(addprefix $(MLX),libmlx_linux.a)
-
-all:	obj $(LIBFT) $(MLX_LIB) $(NAME)
+all:	obj $(LIBFT) $(NAME)
 
 obj:
 				@mkdir -p $(OBJDIR)
 
 $(OBJDIR)/%.o:$(SRCDIR)/%.c
-				@$(CC) $(CFLAGS) -I $(INCDIR) $(MLX_INC) $(LIB_INC) -o $@ -c $<
+				@$(CC) $(CFLAGS) -I $(INCDIR) $(LIBS) $(LIB_INC) -o $@ -c $<
 
 $(LIBFT):
 				@$(MAKE) bonus -C libft
 
-$(MLX_LIB):
-				@$(MAKE) -C $(MLX)
-
 $(NAME):	$(OBJ)
-				@$(CC) -o $(NAME) $(CFLAGS) $(addprefix $(SRCDIR),$(SRCS)) -I $(INCDIR) $(OBJ) $(MLX_LNK) $(LIBFT)
-				@echo "\x1b[32mCongrats!!!! It compiled!!!😊\x1b[0m"
+				@$(CC) -o $(NAME) $(CFLAGS) $(addprefix $(SRCDIR),$(SRCS)) -I $(INCDIR) $(OBJ) $(LIBS) $(LIBFT)
+				@echo "$(_GREEN)Congrats!!!! It compiled!!!😊$(_RESET)"
 
 clean:
 				@rm -rf $(OBJDIR)
 				@$(MAKE) clean -C libft
-				@$(MAKE) clean -C $(MLX)
-				@echo "\x1b[31mI'm gone\x1b[0m"
+				@echo "$(_YELLOW)I'm gone$(_RESET)"
 
 fclean: clean
 				@$(RM) $(NAME)
 				@$(RM) *.bpm
 				@$(MAKE) fclean -C libft
-				@echo "\x1b[31mBye bitches!\x1b[0m"
+				@echo "$(_RED)Bye suckers!$(_RESET)"
 
 re: fclean all
 

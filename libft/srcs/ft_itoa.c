@@ -20,6 +20,7 @@ static int	is_neg(int i)
 		n = -i;
 	else
 		n = i;
+	return (n);
 }
 
 static char	*ft_swap(char *s)
@@ -46,6 +47,7 @@ char	*ft_itoa(int n)
 	int		i;
 	char	str[12];
 
+	sign = 0;
 	i = 0;
 	ft_memset(str, 0, 12);
 	if (n == -2147483648)
